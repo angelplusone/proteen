@@ -1,0 +1,88 @@
+body {
+  font-family: 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+  margin: 0;
+  background: #f7f9fb;
+  color: #222;
+}
+header {
+  background: #1a237e;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  position: relative;
+}
+.nav-right {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+#homeBtn {
+  background: #fff;
+  color: #1a237e;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#homeBtn:hover {
+  background: #e3e6f3;
+}
+#langSelect {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+nav {
+  background: #283593;
+  color: #fff;
+  padding: 0.5rem 0;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+nav a:hover, nav a.active {
+  background: #3949ab;
+}
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30,40,80,0.08);
+  padding: 2rem;
+}
+.page-section {
+  display: block;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+  nav ul {
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .nav-right {
+    flex-direction: column;
+    gap: 0.5rem;
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+} 

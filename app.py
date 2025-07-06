@@ -471,7 +471,7 @@ html_content = """
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2024 Proteen 노벨 프로젝트. All rights reserved.</p>
+            <p class="mb-0">&copy; 2025 Proteen 노벨 프로젝트. All rights reserved.</p>
         </div>
     </footer>
 

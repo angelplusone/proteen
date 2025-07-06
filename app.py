@@ -9,13 +9,14 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Unsplash 이미지 URL들
-hero_img = "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80"
+# 이미지 URL들
 team_img = "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80"
 kname_img = "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
 activity_img = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
 survey_img = "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80"
 nobel_img = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80"
+sweden_flag = "https://flagcdn.com/w320/se.png"
+uk_flag = "https://flagcdn.com/w320/gb.png"
 
 # HTML 콘텐츠
 html_content = """
@@ -90,6 +91,7 @@ html_content = """
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        .flag-img { width: 60px; height: 40px; object-fit: cover; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -97,7 +99,7 @@ html_content = """
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                <div class="col-lg-8 mx-auto text-center hero-content" data-aos="fade-up">
                     <h1 class="display-4 fw-bold mb-4">
                         <i class="bi bi-trophy-fill text-warning floating me-3"></i>
                         Proteen(프로틴) 노벨 프로젝트
@@ -106,7 +108,7 @@ html_content = """
                         Coding을 사랑하는 십대 정보영재들의 글로벌 도전!<br>
                         한글의 세계화와 글로벌 소통을 실현하는 혁신적인 프로젝트
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex justify-content-center gap-3">
                         <button class="btn btn-warning btn-lg" onclick="scrollToSection('project')">
                             <i class="bi bi-arrow-down me-2"></i>프로젝트 보기
                         </button>
@@ -114,9 +116,6 @@ html_content = """
                             <i class="bi bi-people me-2"></i>팀 소개
                         </button>
                     </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="""" + hero_img + """" class="img-fluid rounded-3 shadow-lg" alt="Hero Image">
                 </div>
             </div>
         </div>
@@ -302,6 +301,13 @@ html_content = """
                     <div class="card border-0 shadow-lg">
                         <div class="card-body p-5">
                             <h4 class="fw-bold mb-4">실시간 이름 변환</h4>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">언어 선택</label>
+                                <select class="form-select" id="langSelect">
+                                    <option value="en">English (영어)</option>
+                                    <option value="sv">Svenska (스웨덴어)</option>
+                                </select>
+                            </div>
                             <div class="mb-4">
                                 <label class="form-label fw-bold">이름 입력</label>
                                 <input type="text" class="form-control form-control-lg" id="nameInput" placeholder="예: Brian, Anna, Maria...">
@@ -335,12 +341,9 @@ html_content = """
             <div class="row g-4">
                 <div class="col-lg-6" data-aos="fade-up">
                     <div class="card h-100">
-                        <img src="""" + activity_img + """" class="card-img-top" alt="Sweden">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
-                                    <i class="bi bi-geo-alt-fill text-primary fs-4"></i>
-                                </div>
+                                <img src="""" + sweden_flag + """" class="flag-img me-3" alt="Sweden Flag">
                                 <h4 class="fw-bold mb-0">스웨덴 탐방</h4>
                             </div>
                             <ul class="list-unstyled">
@@ -354,12 +357,9 @@ html_content = """
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
-                        <img src="""" + nobel_img + """" class="card-img-top" alt="UK">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-success bg-opacity-10 rounded-circle p-3 me-3">
-                                    <i class="bi bi-geo-alt-fill text-success fs-4"></i>
-                                </div>
+                                <img src="""" + uk_flag + """" class="flag-img me-3" alt="UK Flag">
                                 <h4 class="fw-bold mb-0">영국 탐방</h4>
                             </div>
                             <ul class="list-unstyled">
@@ -393,7 +393,7 @@ html_content = """
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-star-fill text-primary fs-1"></i>
                             </div>
-                            <h3 class="fw-bold text-primary">4.8</h3>
+                            <h3 class="fw-bold text-primary">4.9</h3>
                             <p class="text-muted mb-0">만족도</p>
                         </div>
                     </div>
@@ -404,7 +404,7 @@ html_content = """
                             <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-people-fill text-success fs-1"></i>
                             </div>
-                            <h3 class="fw-bold text-success">150+</h3>
+                            <h3 class="fw-bold text-success">50+</h3>
                             <p class="text-muted mb-0">참여자</p>
                         </div>
                     </div>
@@ -416,7 +416,7 @@ html_content = """
                                 <i class="bi bi-translate text-warning fs-1"></i>
                             </div>
                             <h3 class="fw-bold text-warning">95%</h3>
-                            <p class="text-muted mb-0">정확도</p>
+                            <p class="text-muted mb-0">만족도</p>
                         </div>
                     </div>
                 </div>
@@ -427,7 +427,7 @@ html_content = """
                                 <i class="bi bi-lightbulb-fill text-info fs-1"></i>
                             </div>
                             <h3 class="fw-bold text-info">12</h3>
-                            <p class="text-muted mb-0">개선사항</p>
+                            <p class="text-muted mb-0">의견</p>
                         </div>
                     </div>
                 </div>
@@ -454,7 +454,7 @@ html_content = """
                                 <div class="col-md-6">
                                     <h6 class="fw-bold">분석 결과</h6>
                                     <ul class="list-unstyled">
-                                        <li><i class="bi bi-graph-up text-primary me-2"></i>높은 만족도 (4.8/5.0)</li>
+                                        <li><i class="bi bi-graph-up text-primary me-2"></i>높은 만족도 (4.9/5.0)</li>
                                         <li><i class="bi bi-graph-up text-primary me-2"></i>문화 교류 효과</li>
                                         <li><i class="bi bi-graph-up text-primary me-2"></i>한글 인식도 향상</li>
                                         <li><i class="bi bi-graph-up text-primary me-2"></i>서비스 개선 방향 도출</li>
@@ -487,9 +487,10 @@ html_content = """
             offset: 100
         });
 
-        // K-Name Maker functionality
+        // K-Name Maker functionality with language selection
         function convertName() {
             const nameInput = document.getElementById('nameInput');
+            const langSelect = document.getElementById('langSelect');
             const result = document.getElementById('result');
             const koreanName = document.getElementById('koreanName');
             const pronunciation = document.getElementById('pronunciation');
@@ -500,20 +501,28 @@ html_content = """
             }
             
             const name = nameInput.value.trim().toLowerCase();
+            const selectedLang = langSelect.value;
+            
+            // Name conversions with romanization
             const conversions = {
-                'brian': '브라이언',
-                'anna': '안나',
-                'maria': '마리아',
-                'john': '존',
-                'sarah': '사라',
-                'michael': '마이클',
-                'emma': '엠마',
-                'david': '데이비드',
-                'lisa': '리사',
-                'james': '제임스'
+                'brian': { korean: '브라이언', roman: 'Beuraieon' },
+                'anna': { korean: '안나', roman: 'Anna' },
+                'maria': { korean: '마리아', roman: 'Maria' },
+                'john': { korean: '존', roman: 'Jon' },
+                'sarah': { korean: '사라', roman: 'Sara' },
+                'michael': { korean: '마이클', roman: 'Maikeul' },
+                'emma': { korean: '엠마', roman: 'Emma' },
+                'david': { korean: '데이비드', roman: 'Deibideu' },
+                'lisa': { korean: '리사', roman: 'Lisa' },
+                'james': { korean: '제임스', roman: 'Jeimseu' }
             };
             
-            const korean = conversions[name] || name.split('').map(char => {
+            let korean, roman;
+            if (conversions[name]) {
+                korean = conversions[name].korean;
+                roman = conversions[name].roman;
+            } else {
+                // Simple character mapping for unknown names
                 const charMap = {
                     'a': '아', 'b': '브', 'c': '크', 'd': '드', 'e': '에',
                     'f': '프', 'g': '그', 'h': '흐', 'i': '이', 'j': '지',
@@ -522,11 +531,12 @@ html_content = """
                     'u': '우', 'v': '브', 'w': '우', 'x': '크스', 'y': '이',
                     'z': '즈'
                 };
-                return charMap[char] || char;
-            }).join('');
+                korean = name.split('').map(char => charMap[char] || char).join('');
+                roman = name.toUpperCase();
+            }
             
             koreanName.textContent = korean;
-            pronunciation.textContent = `발음: ${korean}`;
+            pronunciation.textContent = `발음: ${roman}`;
             
             result.style.display = 'block';
             result.classList.add('result-animation');
